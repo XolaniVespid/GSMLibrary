@@ -13,7 +13,7 @@ public class GSMSession {
     
     public GSMSession()
     {
-        
+        // Initialise communication with GSM modem.
     }
     
     public String[] getSMS(int index)
