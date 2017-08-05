@@ -22,8 +22,17 @@ public class GSMSession {
         // Find the modem from the serial ports available.
         for (int i = 0; i < serialports.length; i++)
         {
-            
+            String descriptivename = serialports[i].getDescriptivePortName();
+            if (descriptivename.contentEquals(""))
+            {
+                
+            }
         }
+    }
+    
+    public GSMSession(Configuration config)
+    {
+        
     }
     
     public String[] getSMS(int index)
