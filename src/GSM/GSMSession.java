@@ -9,11 +9,21 @@ package GSM;
  *
  * @author xolani
  */
+
+// Import serial communication library.
+import com.fazecast.jSerialComm.*;
+
 public class GSMSession {
     
     public GSMSession()
     {
         // Initialise communication with GSM modem.
+        SerialPort[] serialports = SerialPort.getCommPorts();
+        // Find the modem from the serial ports available.
+        for (int i = 0; i < serialports.length; i++)
+        {
+            
+        }
     }
     
     public String[] getSMS(int index)
