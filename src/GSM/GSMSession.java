@@ -12,22 +12,38 @@ package GSM;
 
 // Import serial communication library.
 import com.fazecast.jSerialComm.*;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-public class GSMSession {
+public class GSMSession implements GSMInterface {
+    
+    InputStream input;
+    OutputStream output;
+    String descriptivename;
+    CommandQueue queue;
     
     public GSMSession()
     {
         // Initialise communication with GSM modem.
-        SerialPort[] serialports = SerialPort.getCommPorts();
-        // Find the modem from the serial ports available.
-        for (int i = 0; i < serialports.length; i++)
+        try
         {
-            String descriptivename = serialports[i].getDescriptivePortName();
-            if (descriptivename.contentEquals(""))
-            {
-                
-            }
+            SerialPort serialport = SerialPort.getCommPort("COM4");
+            serialport.setBaudRate(9600);
+            descriptivename = serialport.getDescriptivePortName();
+            input = serialport.getInputStream();
+            output = serialport.getOutputStream();
+            serialport.setNumDataBits(8);
+            serialport.setNumStopBits(1);
+            serialport.openPort();
+            
+        }   
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
         }
+        
+        //SerialPort serial = SerialPort.getCommPorts()[0];
+        //serial.getDescriptivePortName();
     }
     
     public GSMSession(Configuration config)
@@ -62,5 +78,21 @@ public class GSMSession {
         String time = "";
         
         return time;
+    }
+    
+    public boolean testCPIN()
+    {
+        
+        return false;
+    }
+    
+    private void startSerialStreams(String baud)
+    {
+        
+    }
+    
+    private void startCommandQueue()
+    {
+        
     }
 }

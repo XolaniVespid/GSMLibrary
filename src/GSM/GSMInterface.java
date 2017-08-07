@@ -9,11 +9,6 @@ package GSM;
  *
  * @author xolani
  */
-public class CommandQueue {
-    
-    public CommandQueue()
-    {
-        
-    }
+public interface GSMInterface {
     
 }
