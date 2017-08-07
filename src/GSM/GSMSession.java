@@ -35,6 +35,7 @@ public class GSMSession implements GSMInterface {
             serialport.setNumDataBits(8);
             serialport.setNumStopBits(1);
             serialport.openPort();
+            // Test CPIN command.
             
         }   
         catch (Exception e)
@@ -92,6 +93,11 @@ public class GSMSession implements GSMInterface {
     }
     
     private void startCommandQueue()
+    {
+        
+    }
+    
+    public void manualATCmd(String cmd)
     {
         
     }
