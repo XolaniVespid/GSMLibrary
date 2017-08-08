@@ -9,6 +9,6 @@ package GSM;
  *
  * @author xolani
  */
-public class concatenatedSMS implements concatenatedMessage {
+public interface cmd {
     
 }
