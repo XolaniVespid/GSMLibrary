@@ -9,11 +9,6 @@ package GSM;
  *
  * @author xolani
  */
-public class CommandQueue implements AtQueue {
-    
-    public CommandQueue()
-    {
-        
-    }
+public interface concatenatedMessage {
     
 }

@@ -92,7 +92,17 @@ public class GSMSession implements GSMInterface {
         
     }
     
-    private void startCommandQueue()
+    protected void startCommandQueue()
+    {
+        
+    }
+    
+    protected void stopCommandQueue()
+    {
+        
+    }
+    
+    protected void restartCommandQueue()
     {
         
     }
