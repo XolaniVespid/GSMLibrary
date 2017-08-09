@@ -32,9 +32,17 @@ public class SerialStream extends Thread {
         }
     }
     
-    public SerialStream(int baud)
+    public SerialStream(int baud) throws incompatibleBaudRateException
     {
-        
+        if(baud == 9600 || baud == 14400 || baud == 19200 || baud == 28800 || baud == 28800
+                || baud == 38400 || baud == 57600 || baud == 115200)
+        {
+            
+        }
+        else
+        {
+            throw new incompatibleBaudRateException("Baud rate not compatible", baud);
+        }
     }
     
     @Override
