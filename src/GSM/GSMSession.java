@@ -14,6 +14,8 @@ package GSM;
 import com.fazecast.jSerialComm.*;
 import java.io.InputStream;
 import java.io.OutputStream;
+import GSM.Serial.SerialParser;
+import GSM.Serial.SerialStream;
 
 public class GSMSession implements GSMInterface {
     
@@ -87,7 +89,7 @@ public class GSMSession implements GSMInterface {
         return false;
     }
     
-    private void startSerialStreams(String baud)
+    private void startSerialStream(String baud)
     {
         
     }
