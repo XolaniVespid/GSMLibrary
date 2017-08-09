@@ -5,10 +5,41 @@
  */
 package GSM.Serial;
 
+import com.fazecast.jSerialComm.SerialPort;
+import com.fazecast.jSerialComm.SerialPortDataListener;
+import com.fazecast.jSerialComm.SerialPortPacketListener;
+import GSM.Serial.serialExceptions.incompatibleBaudRateException;
+
 /**
  *
  * @author xolani
  */
-public class SerialStream {
+public class SerialStream extends Thread {
     
+    int baud;
+    
+    public SerialStream(String baud) throws incompatibleBaudRateException
+    {
+        if(baud.contentEquals("9600") || baud.contentEquals("14400") || baud.contentEquals("19200")
+                || baud.contentEquals("28800") || baud.contentEquals("38400") || baud.contentEquals("57600")
+                || baud.contentEquals("115200"))
+        {
+            
+        }
+        else
+        {
+            throw new incompatibleBaudRateException("Baud rate not compatible", baud);
+        }
+    }
+    
+    public SerialStream(int baud)
+    {
+        
+    }
+    
+    @Override
+    public void run()
+    {
+        
+    }
 }

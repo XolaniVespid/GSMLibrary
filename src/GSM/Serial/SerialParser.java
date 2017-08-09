@@ -9,6 +9,16 @@ package GSM.Serial;
  *
  * @author xolani
  */
-public class SerialParser {
+public class SerialParser extends Thread {
     
+    public SerialParser()
+    {
+        
+    }
+    
+    @Override
+    public void run()
+    {
+        
+    }
 }
