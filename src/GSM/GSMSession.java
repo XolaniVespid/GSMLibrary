@@ -30,10 +30,10 @@ import GSM.Serial.SerialStream;
 
 public class GSMSession implements GSMInterface {
     
-    InputStream input;
-    OutputStream output;
-    String descriptivename;
-    CommandQueue queue;
+    protected InputStream input;
+    protected OutputStream output;
+    protected String descriptivename;
+    protected CommandQueue queue;
     
     public GSMSession()
     {
