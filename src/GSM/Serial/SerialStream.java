@@ -66,6 +66,9 @@ public class SerialStream extends Thread {
         }
     }
     
+    /*
+    * The currenty preferred constructor for this class.
+    */
     public SerialStream(String baud, String portDescriptor, byte databits, byte stopbits, byte parity) throws incompatibleBaudRateException
     {
         if(baud.contentEquals("9600") || baud.contentEquals("14400") || baud.contentEquals("19200")
@@ -104,7 +107,10 @@ public class SerialStream extends Thread {
         }
         catch(Exception e)
         {
-            
+            for (StackTraceElement stackTrace : e.getStackTrace())
+            {
+                System.out.println(stackTrace);
+            }
         }
         finally
         {
@@ -127,6 +133,7 @@ public class SerialStream extends Thread {
                                     int bytesavailable = serialport.bytesAvailable();
                                     byte[] buffer = new byte[bytesavailable];
                                     int maxIndex = serialport.readBytes(buffer, bytesavailable);
+                                    String serialbytes = new String(buffer);
                                     
                                }
                                else if(event.getEventType() == SerialPort.LISTENING_EVENT_DATA_WRITTEN)
