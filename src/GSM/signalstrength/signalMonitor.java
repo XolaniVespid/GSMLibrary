@@ -16,10 +16,33 @@
  */
 package GSM.signalstrength;
 
+import GSM.CommandQueue;
+
 /**
  *
  * @author xolani
  */
-public class signalMonitor {
+public class signalMonitor extends Thread {
     
+    public signalMonitor()
+    {
+        
+    }
+    
+    @Override
+    public void run()
+    {
+        try
+        {
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+        finally
+        {
+            
+        }
+    }
 }
