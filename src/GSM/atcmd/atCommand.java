@@ -17,6 +17,7 @@
 package GSM.atcmd;
 
 import GSM.atcmd.cmd;
+import GSM.atcmd.exceptions.AtCommandException;
 
 /**
  *
@@ -24,4 +25,72 @@ import GSM.atcmd.cmd;
  */
 public class atCommand implements cmd {
     
+    protected String cmd;
+    protected String[] args;
+    protected commandType type;
+    
+    public atCommand(String command) throws AtCommandException
+    {
+        if (CommandNameTest(command))
+        {
+            cmd = command;
+            type = commandType.READ;
+            args = new String[1];
+            args[0] = "";
+        }
+        else
+        {
+            throw new AtCommandException();
+        }
+    }
+    
+    public atCommand(String command, commandType type)
+    {
+        
+    }
+    
+    public atCommand(String command, commandType type, String arguments)
+    {
+        
+    }
+    
+    public atCommand(String command, commandType type, String[] arguments)
+    {
+        
+    }
+    
+    protected static boolean CommandNameTest(String command)
+    {
+        return true;
+    }
+    
+    protected static boolean ArgumentTest(String argument)
+    {
+        return true;
+    }
+    
+    protected static boolean ArgumentTest(String[] argument)
+    {
+        return true;
+    }
+    
+    public String getCommand()
+    {
+        return cmd;
+    }
+    
+    public String[] getArgs()
+    {
+        return args;
+    }
+    
+    public void setArgs(String[] args)
+    {
+        
+    }
+    
+    public void setArg(int index, String arg)
+    {
+        
+    }
 }
