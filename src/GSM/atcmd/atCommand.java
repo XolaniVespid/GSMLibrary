@@ -135,7 +135,7 @@ public class atCommand implements cmd {
         {
             valid = true;
         }
-        // Test against other GSM07.07 commands. (currently incomplete)
+        // Test against other GSM07.07 commands.
         else if(c.contentEquals("CACM") || c.contentEquals("CAMM") || c.contentEquals("CAOC")
                 || c.contentEquals("CBST") || c.contentEquals("CCFC") || c.contentEquals("CCWA")
                 || c.contentEquals("CEER") || c.contentEquals("CGMI") || c.contentEquals("CGMM")
@@ -158,7 +158,14 @@ public class atCommand implements cmd {
             valid = true;
         }
         // Test against V.25TER commands. (currently incomplete)
-        
+        if (c.contentEquals("A/") || c.contentEquals("ATA") || c.contentEquals("ATD")
+                || c.contentEquals("ATDL") || c.contentEquals("ATE") || c.contentEquals("ATH")
+                || c.contentEquals("ATI") || c.contentEquals("ATL") || c.contentEquals("ATM")
+                || c.contentEquals("+++") || c.contentEquals("ATO") || c.contentEquals("ATP")
+                || c.contentEquals("ATQ"))
+        {
+            return valid;
+        }
         // Test against GSM07.05 commands. (currently incomplete)
         
         // Test against GPRS commands. (currently incomplete)
