@@ -16,6 +16,7 @@
  */
 package GSM;
 
+import GSM.atcmd.cmd;
 import java.util.Queue;
 import java.util.PriorityQueue;
 import java.util.List;
