@@ -201,4 +201,14 @@ public class atCommand implements cmd {
     {
         
     }
+    
+    public commandType getType()
+    {
+        return type;
+    }
+    
+    public void setType(commandType tpe)
+    {
+        type = tpe;
+    }
 }
