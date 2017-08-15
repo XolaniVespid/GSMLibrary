@@ -16,19 +16,29 @@
  */
 package GSM.Serial;
 
+import java.util.*;
+
 /**
  *
  * @author xolani
  */
 public class SerialParser extends Thread implements parser {
     
+    protected java.util.Queue<String> q;
+    
     public SerialParser()
     {
         setPriority(Thread.NORM_PRIORITY);
+        q = new java.util.PriorityQueue<>(255);
     }
     
     @Override
     public void run()
+    {
+        
+    }
+    
+    public void IncomingDataEvent(String incoming)
     {
         
     }
