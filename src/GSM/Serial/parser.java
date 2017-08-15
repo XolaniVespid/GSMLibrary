@@ -20,16 +20,8 @@ package GSM.Serial;
  *
  * @author xolani
  */
-public class SerialParser extends Thread implements parser {
+public interface parser {
     
-    public SerialParser()
-    {
-        setPriority(Thread.NORM_PRIORITY);
-    }
     
-    @Override
-    public void run()
-    {
-        
-    }
+    
 }

@@ -20,8 +20,9 @@ public class SerialStream extends Thread {
     protected int baud;
     protected SerialPort serialport;
     protected String writeback;
+    protected SerialParser parser;
     
-    public SerialStream(String baud, String portDescriptor) throws incompatibleBaudRateException
+    public SerialStream(String baud, String portDescriptor, SerialParser parser) throws incompatibleBaudRateException
     {
         if(baud.contentEquals("9600") || baud.contentEquals("14400") || baud.contentEquals("19200")
                 || baud.contentEquals("28800") || baud.contentEquals("38400") || baud.contentEquals("57600")
@@ -33,6 +34,8 @@ public class SerialStream extends Thread {
                 serialport.setBaudRate(Integer.parseInt(baud));
                 serialport.setNumDataBits(8);
                 serialport.setNumStopBits(1);
+                setPriority(Thread.MAX_PRIORITY);
+                this.parser = parser;
             }
             catch(Exception e)
             {
@@ -49,7 +52,7 @@ public class SerialStream extends Thread {
         }
     }
     
-    public SerialStream(int baud) throws incompatibleBaudRateException
+    public SerialStream(int baud, SerialParser parser) throws incompatibleBaudRateException
     {
         if(baud == 9600 || baud == 14400 || baud == 19200 || baud == 28800 || baud == 28800
                 || baud == 38400 || baud == 57600 || baud == 115200)
@@ -59,6 +62,8 @@ public class SerialStream extends Thread {
                 serialport.setNumDataBits(8); //Default.
                 serialport.setNumStopBits(1); //Default.
                 //serialport.setParity(parity);
+                setPriority(Thread.MAX_PRIORITY);
+                this.parser = parser;
         }
         else
         {
@@ -69,7 +74,7 @@ public class SerialStream extends Thread {
     /*
     * The currenty preferred constructor for this class.
     */
-    public SerialStream(String baud, String portDescriptor, byte databits, byte stopbits, byte parity) throws incompatibleBaudRateException
+    public SerialStream(String baud, String portDescriptor, byte databits, byte stopbits, byte parity, SerialParser parser) throws incompatibleBaudRateException
     {
         if(baud.contentEquals("9600") || baud.contentEquals("14400") || baud.contentEquals("19200")
                 || baud.contentEquals("28800") || baud.contentEquals("38400") || baud.contentEquals("57600")
@@ -82,6 +87,8 @@ public class SerialStream extends Thread {
                 serialport.setNumDataBits(databits);
                 serialport.setNumStopBits(stopbits);
                 serialport.setParity(parity);
+                setPriority(Thread.MAX_PRIORITY);
+                this.parser = parser;
             }
             catch(Exception e)
             {
