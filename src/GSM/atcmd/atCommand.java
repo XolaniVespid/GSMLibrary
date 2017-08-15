@@ -182,31 +182,37 @@ public class atCommand implements cmd {
         return true;
     }
     
+    @Override
     public String getCommand()
     {
         return cmd;
     }
     
+    @Override
     public String[] getArgs()
     {
         return args;
     }
     
+    @Override
     public void setArgs(String[] args)
     {
         
     }
     
+    @Override
     public void setArg(int index, String arg)
     {
         
     }
     
+    @Override
     public commandType getType()
     {
         return type;
     }
     
+    @Override
     public void setType(commandType tpe)
     {
         type = tpe;
