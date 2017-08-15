@@ -22,4 +22,11 @@ package GSM.atcmd;
  */
 public interface cmd {
     
+    public String getCommand();
+    public String[] getArgs();
+    public void setArgs(String[] args);
+    public void setArg(int index, String arg);
+    public commandType getType();
+    public void setType(commandType tpe);
+    
 }
