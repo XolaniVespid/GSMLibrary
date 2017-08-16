@@ -25,21 +25,55 @@ import java.util.*;
 public class SerialParser extends Thread implements parser {
     
     protected java.util.Queue<String> q;
+    protected boolean runloop = true;
     
     public SerialParser()
     {
         setPriority(Thread.NORM_PRIORITY);
+        this.setDaemon(true); // Thread can be a daemon as it can shut down when serial stream thread ends.
         q = new java.util.PriorityQueue<>(255);
     }
     
     @Override
     public void run()
     {
-        
+        try
+        {
+            parse();
+        }
+        catch (Exception e)
+        {
+            
+        }
+        finally
+        {
+            
+        }
     }
     
-    public void IncomingDataEvent(String incoming)
+    public synchronized boolean IncomingDataEvent(String incoming)
     {
-        
+        boolean added = q.offer(incoming);
+        if(added)
+        {
+            this.notify();
+        }
+        return added;
+    }
+    
+    protected void parse()
+    {
+        while(runloop == true)
+        {
+            String currentCommand = q.poll();
+            if(currentCommand != null)
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
