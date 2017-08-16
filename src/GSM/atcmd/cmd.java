@@ -28,5 +28,5 @@ public interface cmd {
     public void setArg(int index, String arg);
     public commandType getType();
     public void setType(commandType tpe);
-    
+    public commandDirection getDir();
 }

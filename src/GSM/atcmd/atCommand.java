@@ -28,6 +28,7 @@ public class atCommand implements cmd {
     protected String cmd;
     protected String[] args;
     protected commandType type;
+    protected commandDirection dir = commandDirection.TX; // Defaults to a command for transmission to the modem.
     
     public atCommand(String command) throws AtCommandException
     {
@@ -74,7 +75,7 @@ public class atCommand implements cmd {
         }
     }
     
-    public atCommand(String command, commandType type, String[] arguments) throws AtCommandException
+    public atCommand(String command, commandType type, commandDirection direction, String[] arguments) throws AtCommandException
     {
         if(CommandNameTest(command))
         {
@@ -88,6 +89,7 @@ public class atCommand implements cmd {
                 }
             }
             args = arguments;
+            dir = direction;
         }
         else
         {
@@ -216,5 +218,10 @@ public class atCommand implements cmd {
     public void setType(commandType tpe)
     {
         type = tpe;
+    }
+    
+    public commandDirection getDir()
+    {
+        return dir;
     }
 }
